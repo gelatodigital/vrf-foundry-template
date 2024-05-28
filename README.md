@@ -1,66 +1,41 @@
-## Foundry
+# Gelato VRF Consumer Test Template
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This repository provides a template for testing VRF (Verifiable Random Function) consumer smart contracts using Foundry. The template is designed to be flexible and reusable, allowing developers to easily test their own VRF consumer contracts.
 
-Foundry consists of:
+## Overview
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+The template includes:
 
-## Documentation
+- An interface (`IVRFConsumer.sol`) defining the required functions and events for a VRF consumer contract.
+- An example test contract (`SimpleVRFContract`) that implements the interface and demonstrates how to use the `VRFConsumer` library to interact with the VRF coordinator.
+- Example tests (`SimpleVRFContractTest`) that demonstrate how to test the VRF consumer contract using the `VRFConsumerTest` library.
 
-https://book.getfoundry.sh/
+## Prerequisites
 
-## Usage
+- [Foundry](https://getfoundry.sh/) - A blazing fast, portable and modular toolkit for Ethereum application development written in Rust.
 
-### Build
+## Getting Started
 
-```shell
-$ forge build
+### Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/vrf-consumer-test-template.git
+cd vrf-consumer-test-template
 ```
 
-### Test
+### Run the Tests
 
-```shell
-$ forge test
+```bash
+foundry test
 ```
 
-### Format
+This will compile the contracts and run the tests, providing you with feedback on the functionality of your VRF consumer contract.
 
-```shell
-$ forge fmt
-```
+Output
 
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
+```bash
+Ran 2 tests for test/SimpleVRFContract.t.sol:TestSimpleVRFContract
+[PASS] testFulfillRandomness() (gas: 193126)
+[PASS] testRequestRandomness() (gas: 88403)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 944.90µs (491.00µs CPU time)
 ```
